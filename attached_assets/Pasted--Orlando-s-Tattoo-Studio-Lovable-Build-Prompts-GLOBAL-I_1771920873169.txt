@@ -1,0 +1,334 @@
+# Orlando's Tattoo Studio – Lovable Build Prompts
+
+---
+
+# GLOBAL INSTRUCTIONS (SET FIRST IN LOVABLE)
+
+Create a multi-page website for "Orlando's Tattoo Studio" located in Houston, TX.
+
+Brand Positioning:
+
+* Established in 1982
+* Latino-owned
+* LGBTQ+ friendly
+* Houston-rooted
+* Tattoos and piercings under one roof
+* Primary booking method: Facebook Messenger
+* Walk-ins welcome daily from 2PM (first-come, first-served)
+
+Design Direction:
+
+* Clean-legacy aesthetic with gritty undertones
+* Monochrome only (NO color accents)
+* No gradients
+* No soft modern startup look
+* High contrast
+* Institutional, established feel
+
+Color Palette:
+
+* Black #000000 (primary background)
+* White #FFFFFF (primary text)
+* Dark Ink Grey #1A1A1A (section contrast backgrounds)
+
+Typography:
+
+* Headers: Gothic / Old English style (e.g., MedievalSharp or UnifrakturCook)
+* Subheadings: Bold condensed caps (Bebas Neue or Oswald style)
+* Body: Clean sans-serif (Inter or Montserrat style)
+
+Navigation:
+
+* Logo on left
+* “Est. 1982” displayed directly next to logo (visible at all times)
+* Nav links: Home, Services, Artists, Gallery, Book a Session, Contact
+* Sticky navigation bar
+* Persistent CTA button: "Book Your Session" linking to Facebook Messenger
+
+Primary CTA Link (use placeholder for Messenger URL):
+
+* All primary buttons link to Facebook Messenger
+* Secondary CTA: mailto:orlando[.tattoo.est82@gmail.com](mailto:.tattoo.est82@gmail.com)
+* Phone clickable: +1 832-618-2538
+
+Mobile-first responsive design required.
+
+---
+
+# PAGE 1 – HOME
+
+Create the Home page with the following sections in order:
+
+## 1. Hero Section
+
+Full-width Houston skyline photography background (darkened overlay).
+Subtle Texas silhouette watermark overlay at low opacity.
+
+Headline (large gothic font):
+EST. 1982. STILL PUTTING IN WORK.
+
+Subheadline:
+Houston’s own tattoo & piercing studio.
+Custom ink. Trusted piercings. Walk-ins welcome daily.
+
+Primary Button: Book Your Session (Messenger link)
+Secondary Button: Inbox Us Anytime (Messenger link)
+
+Small line below buttons:
+📍 17023 Nanes Dr., Houston, TX
+🕑 Opens 2PM — First come, first served
+
+Subtle line below:
+Proudly Latino-owned. Houston-rooted for over 40 years.
+
+Add an ink-drip style divider at bottom of hero.
+
+---
+
+## 2. Social Proof Strip
+
+Black background.
+Centered large white text:
+⭐ 4.5 Stars — 375 Reviews
+
+Supporting line:
+Four decades of Houston trust. Real clients. Real work.
+
+---
+
+## 3. About Section – “Ink With History”
+
+Two-column layout.
+Left: Text.
+Right: Black & white studio photography.
+Background: Dark Ink Grey #1A1A1A
+
+Headline:
+INK WITH HISTORY.
+
+Body:
+Since 1982, Orlando’s Tattoo Studio has been part of Houston’s story.
+
+Proudly Latino-owned. Community-rooted. LGBTQ+ friendly.
+
+We don’t chase trends.
+We bring art to life using skin as a canvas.
+
+Walk in. Talk to us. Let’s build something that lasts.
+
+Button: Start Your Piece (Messenger link)
+
+---
+
+## 4. Services Preview
+
+Two equal columns.
+Minimal thin-line icons.
+
+Left Column:
+TATTOOS
+Custom designs. Script. Portraits. Black & grey. Cover-ups.
+Built with intention. Made to last.
+
+Right Column:
+PIERCINGS
+Professional piercings by Grace — Houston’s trusted piercer with a loyal following built over years.
+
+Button centered below: View Services
+
+---
+
+## 5. Grace Spotlight Section
+
+Black background.
+Portrait image right side.
+Text left side.
+
+Headline:
+HOUSTON’S TRUSTED PIERCER.
+
+Body:
+Grace has built a multi-year repeat clientele who ask for her by name.
+
+Professional. Precise. Personable.
+
+When it comes to piercings, Houston trusts Grace.
+
+Button: Message Us About Piercings (Messenger link)
+
+---
+
+## 6. Testimonials Section
+
+White background.
+
+Headline:
+THE CITY SPEAKS.
+
+Add 3 clean testimonial blocks:
+
+“Watching him bring art to life using skin as a canvas is unreal.”
+“Been coming here for years. Always solid.”
+“Professional, welcoming, and real Houston energy.”
+
+Below testimonials:
+⭐ 4.5 Stars from 375 Reviews
+
+---
+
+## 7. Final CTA Banner
+
+Full black background.
+Large centered text:
+READY WHEN YOU ARE.
+
+Walk-ins welcome daily from 2PM.
+Or inbox us and let’s talk about your next piece.
+
+Button: Book Your Session (Messenger link)
+
+---
+
+# PAGE 2 – SERVICES
+
+Header Section:
+TATTOOS & PIERCINGS — DONE RIGHT.
+
+---
+
+## Tattoos Section
+
+Custom tattoos built around your idea.
+Consultations available in person or via inbox.
+
+List:
+
+* Black & grey
+* Script
+* Portraits
+* Large-scale pieces
+* Cover-ups
+
+Note:
+Deposits handled in-studio for large custom work if required.
+
+---
+
+## Piercings Section
+
+Professional piercings handled by Grace.
+
+Clean setup. Experienced hands. Loyal repeat clientele.
+
+Walk-ins welcome for most piercings.
+Call ahead for availability.
+
+Button: Inbox Us About Availability (Messenger link)
+
+---
+
+# PAGE 3 – ARTISTS
+
+Header:
+MEET THE ARTISTS.
+
+---
+
+## Orlando
+
+Founder. Tattoo artist.
+
+Legacy-driven. Bringing art to life using skin as a canvas since 1982.
+Houston-rooted. Decades of craft.
+
+---
+
+## Grace
+
+Professional piercer.
+Houston’s trusted piercer with multi-year loyal clientele.
+
+Professional. Precise. Community-driven.
+
+Button: Start a Conversation (Messenger link)
+
+---
+
+# PAGE 4 – GALLERY
+
+Header:
+OUR WORK.
+
+Create filterable grid with categories:
+
+* Tattoos
+* Piercings
+* Large Pieces
+* Script
+
+Black & white hover overlay effect.
+
+Top or bottom CTA banner:
+See something you like?
+Inbox us and let’s build yours.
+
+Button: Book Your Session
+
+---
+
+# PAGE 5 – BOOK A SESSION
+
+Header:
+READY TO START?
+
+Body:
+We keep it simple.
+
+1. Message us on Facebook
+2. Tell us your idea
+3. We’ll guide you from there
+
+Walk-ins welcome daily from 2PM.
+Call ahead to check availability.
+
+Buttons:
+
+* Message Us on Facebook (Primary)
+* Email Us (mailto link)
+
+Phone displayed prominently:
++1 832-618-2538
+
+No booking forms.
+No online deposit system.
+
+---
+
+# PAGE 6 – CONTACT
+
+Display:
+📍 17023 Nanes Dr., Houston, TX 77090
+📞 +1 832-618-2538
+✉ [orlando.tattoo.est82@gmail.com](mailto:orlando.tattoo.est82@gmail.com)
+
+Embed Google Map.
+
+Hours:
+Opens daily at 2PM
+Walk-ins first come, first served.
+
+Closing line:
+Houston’s own. Since 1982.
+
+---
+
+# FINAL LOVABLE NOTES
+
+* Lock color palette before styling
+* Approve homepage structure before duplicating layout patterns
+* Use consistent section spacing
+* Keep iconography minimal and monochrome
+* Prioritize Messenger CTA visibility on every page
+* Ensure mobile responsiveness is clean and high contrast
+
+End of Build Prompts Document.

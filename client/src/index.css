@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&family=Playfair+Display:wght@400;700;900&family=Bebas+Neue&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-gothic: 'Playfair Display', serif;
+    --font-condensed: 'Oswald', sans-serif;
+    --font-sans: 'Inter', sans-serif;
+
+    /* Strictly Monochrome Palette */
+    --background: 0 0% 0%;     /* Pure Black */
+    --foreground: 0 0% 100%;   /* Pure White */
+    
+    --card: 0 0% 4%;           /* Very Dark Grey */
+    --card-foreground: 0 0% 100%;
+    
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 100%;
+    
+    --primary: 0 0% 100%;      /* White */
+    --primary-foreground: 0 0% 0%; /* Black */
+    
+    --secondary: 0 0% 10%;     /* Dark Ink Grey */
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+    
+    --accent: 0 0% 100%;
+    --accent-foreground: 0 0% 0%;
+    
+    --destructive: 0 0% 100%;
+    --destructive-foreground: 0 0% 0%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 100%;
+
+    --radius: 0rem; /* Brutalist / Gritty - NO rounded corners */
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-white selection:text-black;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-condensed);
+    @apply tracking-wide uppercase;
+  }
+
+  .font-gothic {
+    font-family: var(--font-gothic);
+    @apply normal-case font-normal tracking-normal;
+  }
+  
+  .font-condensed {
+    font-family: var(--font-condensed);
+  }
+
+  .font-bebas {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+
+  /* Noise Overlay for Gritty Texture */
+  .texture-noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  /* Ink Drip Divider */
+  .ink-drip-top {
+    position: relative;
+  }
+  .ink-drip-top::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 20' preserveAspectRatio='none'%3E%3Cpath d='M0,0 v10 c10,-5 20,10 30,0 c10,-5 20,5 30,-2 c10,-8 20,12 30,0 c10,-10 20,8 30,-1 c10,-12 20,15 30,2 c10,-8 20,12 30,0 c10,-5 20,5 30,-2 c10,-8 20,12 30,0 c10,-10 20,8 30,-1 c10,-12 20,15 30,2 c10,-8 20,12 30,0 c10,-5 20,5 30,-2 c10,-8 20,12 30,0 c10,-10 20,8 30,-1 c10,-12 20,15 30,2 c10,-8 20,12 30,0 V0 H0 Z' fill='%23000'/%3E%3C/svg%3E");
+    background-size: 100px 100%;
+    z-index: 10;
+  }
+}
+
+@layer utilities {
+  .text-shadow-heavy {
+    text-shadow: 0 4px 12px rgba(0,0,0,0.8), 0 0 4px rgba(0,0,0,0.5);
+  }
+}
