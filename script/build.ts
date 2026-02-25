@@ -55,9 +55,11 @@ async function buildAll() {
     define: {
       "process.env.NODE_ENV": '"production"',
     },
-    minify: true,
+    minify: false, // Disable minification to prevent syntax corruption
     external: externals,
     logLevel: "info",
+    keepNames: true, // Preserve function and class names
+    sourcemap: false, // Disable source maps for production
   });
 }
 
