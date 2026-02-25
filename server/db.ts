@@ -8,7 +8,10 @@ const { Pool } = pg;
 
 if (!process.env.DATABASE_URL) {
   throw new Error(
-    "DATABASE_URL must be set. Did you forget to provision a database?",
+    "DATABASE_URL environment variable must be set. " +
+    "For Render deployment: go to your service dashboard -> Environment tab -> " +
+    "add DATABASE_URL with your PostgreSQL connection string. " +
+    "If you haven't created a database yet, create a PostgreSQL database in Render first.",
   );
 }
 
