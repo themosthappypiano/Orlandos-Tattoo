@@ -19,11 +19,8 @@ export const pgGalleryImages = pgTable("gallery_images", {
   description: text("description"),
 });
 
-// Default to PostgreSQL for production builds, SQLite for local development
-export const galleryImages = 
-  typeof process !== 'undefined' && process.env?.DATABASE_URL?.startsWith('file:') 
-    ? sqliteGalleryImages 
-    : pgGalleryImages;
+// For production builds, always use PostgreSQL schema for type safety
+export const galleryImages = pgGalleryImages;
 
 export const insertGalleryImageSchema = createInsertSchema(pgGalleryImages).omit({ id: true });
 export type InsertGalleryImage = z.infer<typeof insertGalleryImageSchema>;
