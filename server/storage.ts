@@ -8,11 +8,13 @@ export interface IStorage {
 
 export class DatabaseStorage implements IStorage {
   async getGalleryImages(): Promise<GalleryImage[]> {
-    return await db.select().from(galleryImages);
+    const database = await db();
+    return await database.select().from(galleryImages);
   }
 
   async createGalleryImage(image: InsertGalleryImage): Promise<GalleryImage> {
-    const [created] = await db.insert(galleryImages).values(image).returning();
+    const database = await db();
+    const [created] = await database.insert(galleryImages).values(image).returning();
     return created;
   }
 }
