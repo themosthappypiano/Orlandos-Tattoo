@@ -19,9 +19,9 @@ export const pgGalleryImages = pgTable("gallery_images", {
   description: text("description"),
 });
 
-// For production builds, always use PostgreSQL schema for type safety
-export const galleryImages = pgGalleryImages;
+// Use SQLite schema for all environments
+export const galleryImages = sqliteGalleryImages;
 
-export const insertGalleryImageSchema = createInsertSchema(pgGalleryImages).omit({ id: true });
+export const insertGalleryImageSchema = createInsertSchema(sqliteGalleryImages).omit({ id: true });
 export type InsertGalleryImage = z.infer<typeof insertGalleryImageSchema>;
-export type GalleryImage = typeof pgGalleryImages.$inferSelect;
+export type GalleryImage = typeof sqliteGalleryImages.$inferSelect;
