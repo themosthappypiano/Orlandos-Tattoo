@@ -13,39 +13,39 @@ export interface GalleryImage {
 const MOCK_GALLERY: GalleryImage[] = [
   {
     id: 101,
-    url: "https://images.unsplash.com/photo-1598371839155-dc04d3e8e19c?w=800&q=80",
+    url: "/artwork1.png",
     category: "tattoos",
-    description: "Detailed black and grey sleeve work."
+    description: "Custom tattoo artwork showcase"
   },
   {
     id: 102,
-    url: "https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=800&q=80",
+    url: "/artwork2.png",
     category: "large-pieces",
-    description: "Full back traditional piece."
+    description: "Detailed tattoo design"
   },
   {
     id: 103,
-    url: "https://images.unsplash.com/photo-1568515387631-8b650a3191ce?w=800&q=80",
-    category: "piercings",
-    description: "Industrial and helix custom setup."
+    url: "/artwork3.png",
+    category: "tattoos",
+    description: "Professional tattoo work"
   },
   {
     id: 104,
-    url: "https://images.unsplash.com/photo-1550537687-c91072c4792d?w=800&q=80",
+    url: "/artwork4.png",
     category: "script",
-    description: "Custom lettering, freehand."
+    description: "Custom lettering design"
   },
   {
     id: 105,
-    url: "https://images.unsplash.com/photo-1590243400586-7243c49e2cb3?w=800&q=80",
+    url: "/artwork5.png",
     category: "tattoos",
-    description: "Neo-traditional shading."
+    description: "Artistic tattoo creation"
   },
   {
     id: 106,
-    url: "https://images.unsplash.com/photo-1621570073577-0ab1a9d454df?w=800&q=80",
+    url: "/artwork6.png",
     category: "large-pieces",
-    description: "Chest piece in progress."
+    description: "Detailed artwork piece"
   },
 ];
 

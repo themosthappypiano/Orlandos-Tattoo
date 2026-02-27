@@ -9,7 +9,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <h2 className="font-gothic text-4xl mb-4 text-white">Orlando's</h2>
             <p className="text-white/60 font-sans max-w-md mb-6">
-              Houston's own tattoo & piercing studio. Custom ink. Trusted piercings. Walk-ins welcome daily. Proudly Latino-owned.
+              Houston's tattoo & piercing. Custom ink. Trusted piercings. Walk-ins welcome daily. Proudly Latino-owned.
             </p>
             <p className="font-condensed tracking-widest text-sm text-white/40 uppercase">
               LGBTQ+ Friendly

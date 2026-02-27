@@ -65,7 +65,7 @@ export default function Home() {
           {/* Left side - Text content */}
           <div className="text-center lg:text-left">
             <h1 className="font-bebas text-6xl md:text-8xl lg:text-9xl text-white mb-6 text-shadow-heavy" style={{textShadow: '4px 4px 8px rgba(0,0,0,0.8)', letterSpacing: '0.1em', fontWeight: '700'}}>
-              HOUSTON'S OWN TATTOO & PIERCING STUDIO.
+              HOUSTON'S TATTOO & PIERCING.
             </h1>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-16 mt-8 sm:mt-0 justify-center lg:justify-start">
@@ -116,19 +116,25 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <div className="relative overflow-hidden rounded-lg">
-              <div className="w-full aspect-square bg-gray-200 flex items-center justify-center hover:scale-105 transition-transform duration-300 rounded-lg">
-                <span className="text-gray-600 font-medium">Placeholder Image</span>
-              </div>
+              <img 
+                src="/artwork1.png" 
+                alt="Tattoo artwork 1" 
+                className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300 rounded-lg"
+              />
             </div>
             <div className="relative overflow-hidden rounded-lg">
-              <div className="w-full aspect-square bg-gray-200 flex items-center justify-center hover:scale-105 transition-transform duration-300 rounded-lg">
-                <span className="text-gray-600 font-medium">Placeholder Image</span>
-              </div>
+              <img 
+                src="/artwork2.png" 
+                alt="Tattoo artwork 2" 
+                className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300 rounded-lg"
+              />
             </div>
             <div className="relative overflow-hidden rounded-lg">
-              <div className="w-full aspect-square bg-gray-200 flex items-center justify-center hover:scale-105 transition-transform duration-300 rounded-lg">
-                <span className="text-gray-600 font-medium">Placeholder Image</span>
-              </div>
+              <img 
+                src="/artwork3.png" 
+                alt="Tattoo artwork 3" 
+                className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300 rounded-lg"
+              />
             </div>
           </div>
           <div className="text-center">
