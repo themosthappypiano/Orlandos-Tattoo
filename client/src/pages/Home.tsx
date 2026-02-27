@@ -40,11 +40,23 @@ export default function Home() {
       {/* Landing page hero scenic skyline landscape */}
       <section className="relative min-h-screen flex items-center justify-center pt-8 overflow-hidden">
         <div className="absolute inset-0 z-0">
+          {/* Desktop background image */}
           <img 
             src={backgroundImage} 
             alt="Background" 
-            className="absolute inset-0 w-full h-full object-cover opacity-50"
+            className="hidden lg:block absolute inset-0 w-full h-full object-cover opacity-50"
           />
+          {/* Mobile video background */}
+          <video 
+            ref={videoRef}
+            className="lg:hidden absolute inset-0 w-full h-full object-cover opacity-60" 
+            autoPlay 
+            muted
+            loop
+            playsInline
+          >
+            <source src="/studio-video.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
@@ -53,13 +65,10 @@ export default function Home() {
           {/* Left side - Text content */}
           <div className="text-center lg:text-left">
             <h1 className="font-bebas text-6xl md:text-8xl lg:text-9xl text-white mb-6 text-shadow-heavy" style={{textShadow: '4px 4px 8px rgba(0,0,0,0.8)', letterSpacing: '0.1em', fontWeight: '700'}}>
-              HOUSTON'S FINEST.
+              HOUSTON'S OWN TATTOO & PIERCING STUDIO.
             </h1>
-            <p className="font-sans text-lg md:text-xl text-white/90 mb-10 text-shadow-heavy leading-relaxed">
-              Houston's own tattoo & piercing studio. Custom ink. Trusted piercings. Walk-ins welcome daily.
-            </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 mb-16 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 mb-16 mt-8 sm:mt-0 justify-center lg:justify-start">
               <Button asChild size="lg" className="w-full sm:w-auto">
                 <a href="#messenger">Book Your Session</a>
               </Button>
@@ -79,10 +88,9 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Right side - Video */}
-          <div className="relative w-full max-w-lg mx-auto">
+          {/* Right side - Video (desktop only) */}
+          <div className="hidden lg:block relative w-full max-w-lg mx-auto">
             <video 
-              ref={videoRef}
               className="w-full h-auto rounded-lg shadow-2xl" 
               autoPlay 
               muted
@@ -108,25 +116,19 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <div className="relative overflow-hidden rounded-lg">
-              <img 
-                src="https://i.ibb.co/27zTLth7/image.png" 
-                alt="Tattoo Work 1" 
-                className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300"
-              />
+              <div className="w-full aspect-square bg-gray-200 flex items-center justify-center hover:scale-105 transition-transform duration-300 rounded-lg">
+                <span className="text-gray-600 font-medium">Placeholder Image</span>
+              </div>
             </div>
             <div className="relative overflow-hidden rounded-lg">
-              <img 
-                src="https://i.ibb.co/LT9Q2hh/image.png" 
-                alt="Tattoo Work 2" 
-                className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300"
-              />
+              <div className="w-full aspect-square bg-gray-200 flex items-center justify-center hover:scale-105 transition-transform duration-300 rounded-lg">
+                <span className="text-gray-600 font-medium">Placeholder Image</span>
+              </div>
             </div>
             <div className="relative overflow-hidden rounded-lg">
-              <img 
-                src="https://i.ibb.co/JW5WtJF8/image.png" 
-                alt="Tattoo Work 3" 
-                className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300"
-              />
+              <div className="w-full aspect-square bg-gray-200 flex items-center justify-center hover:scale-105 transition-transform duration-300 rounded-lg">
+                <span className="text-gray-600 font-medium">Placeholder Image</span>
+              </div>
             </div>
           </div>
           <div className="text-center">
@@ -139,7 +141,14 @@ export default function Home() {
 
 
       {/* REVIEWS SECTION */}
-      <section className="py-24 relative overflow-hidden" style={{backgroundImage: 'url(https://i.ibb.co/1c7Lp3M/Chat-GPT-Image-Feb-24-2026-08-37-21-AM.png)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+      <section className="py-24 relative overflow-hidden" style={{backgroundImage: 'url(https://i.ibb.co/1c7Lp3M/Chat-GPT-Image-Feb-24-2026-08-37-21-AM.png)', backgroundSize: 'cover', backgroundPosition: 'left center'}}>
+        <style jsx>{`
+          @media (min-width: 768px) {
+            section {
+              background-position: center !important;
+            }
+          }
+        `}</style>
         <div className="absolute inset-0 bg-black/60"></div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
@@ -149,7 +158,7 @@ export default function Home() {
             <h2 className="font-condensed text-3xl md:text-4xl text-white mb-2">4.5 STARS — 375 REVIEWS</h2>
             <p className="font-sans text-white/60">Four decades of Houston trust. Real clients. Real work.</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
             <div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg">
               <div className="flex mb-3">
                 {[1,2,3,4,5].map(s => <Star key={s} className="fill-black text-black w-4 h-4" />)}
