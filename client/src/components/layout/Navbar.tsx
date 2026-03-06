@@ -9,7 +9,6 @@ import { SlideTabs } from "@/components/ui/slide-tabs";
 const LINKS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "Artists", href: "/artists" },
   { label: "Gallery", href: "/gallery" },
   { label: "Contact", href: "/contact" },
 ];
@@ -74,7 +73,7 @@ export function Navbar() {
                 className="scale-75"
               />
               <Button asChild variant="outline" size="sm" className="ml-4 text-xs">
-                <a href="#messenger">Book a Session</a>
+                <Link href="/book">Book a Session</Link>
               </Button>
             </div>
 

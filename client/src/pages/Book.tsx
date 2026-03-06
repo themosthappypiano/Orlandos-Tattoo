@@ -24,7 +24,7 @@ export default function Book() {
                 <div className="w-12 h-12 shrink-0 border border-white flex items-center justify-center font-condensed text-xl font-bold">1</div>
                 <div>
                   <h3 className="font-condensed text-2xl tracking-wider uppercase mb-2">Message Us</h3>
-                  <p className="font-sans text-white/60">Hit us up on Facebook Messenger—it's the fastest way to get a response during shop hours.</p>
+                  <p className="font-sans text-white/60">Send us a text message—it's the fastest way to get a response during shop hours.</p>
                 </div>
               </div>
               <div className="flex gap-6 items-start">
@@ -45,9 +45,9 @@ export default function Book() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-12 border-t border-white/20">
               <Button asChild size="lg" className="w-full flex gap-3 h-16 text-lg">
-                <a href="#messenger">
+                <a href="sms:+18326182538">
                   <MessageCircle size={20} />
-                  Message on Facebook
+                  Text Us
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="w-full flex gap-3 h-16 text-lg">

@@ -64,16 +64,17 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Map Area */}
+            {/* Map Area with Tattoo Gallery */}
             <div className="relative min-h-[400px] lg:min-h-full border-t lg:border-t-0 lg:border-l border-white/20">
-              {/* Grayscale filter applied to iframe via CSS to maintain aesthetic */}
+              {/* Colored Google Maps iframe */}
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3455.5186591689255!2d-95.45266858488602!3d29.99321398189871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640cca9eb6a1111%3A0xc34a406691be5a0a!2s17023%20Nanes%20Dr%2C%20Houston%2C%20TX%2077090!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
-                className="absolute inset-0 w-full h-full grayscale contrast-125 opacity-80" 
+                className="absolute inset-0 w-full h-full contrast-125 opacity-90" 
                 allowFullScreen={false} 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
+              
             </div>
 
           </div>

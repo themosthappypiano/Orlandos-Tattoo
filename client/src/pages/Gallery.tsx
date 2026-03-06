@@ -5,20 +5,23 @@ import { useGallery } from "@/hooks/use-gallery";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { Loader2 } from "lucide-react";
+import { Link } from "wouter";
 
 const CATEGORIES = [
   { id: "all", label: "All Work" },
   { id: "tattoos", label: "Tattoos" },
   { id: "piercings", label: "Piercings" },
-  { id: "large-pieces", label: "Large Pieces" },
-  { id: "script", label: "Script" },
 ];
 
 export default function Gallery() {
   const [filter, setFilter] = useState("all");
-  const { data: images, isLoading } = useGallery();
+  const { data: images, isLoading, error } = useGallery();
 
-  const filteredImages = images?.filter(img => filter === "all" || img.category === filter) || [];
+  // Ensure we have images, fallback to empty array
+  const allImages = images || [];
+  const filteredImages = allImages.filter(img => filter === "all" || img.category === filter);
+  
+  console.log("Gallery debug:", { filter, isLoading, error, imageCount: allImages.length, filteredCount: filteredImages.length });
 
   return (
     <PageTransition>
@@ -51,6 +54,10 @@ export default function Gallery() {
             <div className="flex-1 flex items-center justify-center">
               <Loader2 className="w-12 h-12 text-white animate-spin" />
             </div>
+          ) : filteredImages.length === 0 ? (
+            <div className="flex-1 flex items-center justify-center">
+              <p className="text-white/60 text-lg">No images found for this category.</p>
+            </div>
           ) : (
             <motion.div 
               layout 
@@ -70,13 +77,9 @@ export default function Gallery() {
                     <img 
                       src={img.url} 
                       alt={img.description || "Gallery Image"} 
-                      className="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 hover:brightness-110 hover:contrast-110"
                     />
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6 text-center">
-                      <p className="font-sans text-white text-lg font-medium translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        {img.description}
-                      </p>
-                    </div>
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </motion.div>
                 ))}
               </AnimatePresence>
@@ -91,7 +94,7 @@ export default function Gallery() {
               See something you like? Let's build yours.
             </h2>
             <Button asChild className="bg-black text-white hover:bg-black/80 border-black hover:text-white">
-              <a href="#messenger">Book Your Session</a>
+              <Link href="/book">Book Your Session</Link>
             </Button>
           </div>
         </section>

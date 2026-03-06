@@ -4,6 +4,67 @@ import { Star, MapPin, Clock } from "lucide-react";
 import { Link } from "wouter";
 import { useState, useEffect, useRef } from "react";
 
+// Rotating Gallery Component
+function RotatingGallery() {
+  const [currentSet, setCurrentSet] = useState(0);
+  
+  // Expanded gallery with all your images
+  const allGalleryImages = [
+    "/gallery-1.jpg", "/gallery-2.jpg", "/gallery-3.jpg",
+    "/gallery-4.jpg", "/gallery-5.jpg", "/gallery-6.jpg",
+    "/gallery-7.jpg", "/gallery-8.jpg", "/gallery-9.jpg",
+    "/gallery-10.jpg", "/gallery-11.jpg", "/gallery-12.jpg",
+    "/review-tattoo-1.jpg", "/review-tattoo-2.jpg", "/review-tattoo-3.jpg",
+    "/piercing-1.jpg", "/piercing-2.jpg", "/review-piercing.jpg"
+  ];
+  
+  // Group images into sets of 3
+  const imageSets = [];
+  for (let i = 0; i < allGalleryImages.length; i += 3) {
+    imageSets.push(allGalleryImages.slice(i, i + 3));
+  }
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSet((prev) => (prev + 1) % imageSets.length);
+    }, 4000); // Change set every 4 seconds
+    
+    return () => clearInterval(interval);
+  }, [imageSets.length]);
+  
+  const currentImages = imageSets[currentSet] || [];
+  
+  return (
+    <div className="relative mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        {[0, 1, 2].map((index) => (
+          <div key={index} className="relative overflow-hidden rounded-lg group aspect-square">
+            <img
+              key={`${currentSet}-${index}`}
+              src={currentImages[index] || "/gallery-1.jpg"}
+              alt={`Tattoo artwork ${index + 1}`}
+              className="w-full h-full object-cover hover:scale-110 transition-all duration-500 rounded-lg filter hover:brightness-110 hover:contrast-110 animate-fade-in"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+        ))}
+      </div>
+      
+      {/* Slideshow indicators */}
+      <div className="flex justify-center mt-6 gap-2">
+        {imageSets.map((_, index) => (
+          <div
+            key={index}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentSet ? 'bg-white' : 'bg-white/30'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   
@@ -63,14 +124,14 @@ export default function Home() {
 
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-screen pt-8">
           {/* Left side - Text content */}
-          <div className="text-center lg:text-left">
+          <div className="text-center lg:text-left pt-20 lg:pt-0">
             <h1 className="font-bebas text-6xl md:text-8xl lg:text-9xl text-white mb-6 text-shadow-heavy" style={{textShadow: '4px 4px 8px rgba(0,0,0,0.8)', letterSpacing: '0.1em', fontWeight: '700'}}>
               HOUSTON'S TATTOO & PIERCING.
             </h1>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-16 mt-8 sm:mt-0 justify-center lg:justify-start">
               <Button asChild size="lg" className="w-full sm:w-auto">
-                <a href="#messenger">Book Your Session</a>
+                <Link href="/book">Book Your Session</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
                 <Link href="/gallery">View Gallery</Link>
@@ -109,34 +170,12 @@ export default function Home() {
       <section className="py-24 bg-black relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-gothic text-5xl md:text-7xl text-white mb-8">OUR GALLERY.</h2>
+            <h2 className="font-gothic text-5xl md:text-7xl text-white mb-8">OUR WORK.</h2>
             <p className="font-sans text-white/70 text-lg mb-10">
               Check out some of our finest work. Custom tattoos and professional piercings.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="relative overflow-hidden rounded-lg">
-              <img 
-                src="/artwork1.png" 
-                alt="Tattoo artwork 1" 
-                className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300 rounded-lg"
-              />
-            </div>
-            <div className="relative overflow-hidden rounded-lg">
-              <img 
-                src="/artwork2.png" 
-                alt="Tattoo artwork 2" 
-                className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300 rounded-lg"
-              />
-            </div>
-            <div className="relative overflow-hidden rounded-lg">
-              <img 
-                src="/artwork3.png" 
-                alt="Tattoo artwork 3" 
-                className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300 rounded-lg"
-              />
-            </div>
-          </div>
+          <RotatingGallery />
           <div className="text-center">
             <Button asChild variant="outline" size="lg">
               <Link href="/gallery">View All Styles</Link>
@@ -164,37 +203,31 @@ export default function Home() {
             <h2 className="font-condensed text-3xl md:text-4xl text-white mb-2">4.5 STARS — 375 REVIEWS</h2>
             <p className="font-sans text-white/60">Four decades of Houston trust. Real clients. Real work.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-            <div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg flex flex-col">
               <div className="flex mb-3">
                 {[1,2,3,4,5].map(s => <Star key={s} className="fill-black text-black w-4 h-4" />)}
               </div>
-              <p className="font-sans text-sm font-medium mb-4 leading-snug text-black">"First time here and will b back Mi husband getting his tattoo touch up"</p>
+              <p className="font-sans text-sm font-medium mb-4 leading-snug text-black flex-grow">"First time here and will b back Mi husband getting his tattoo touch up"</p>
+              <img src="/review-tattoo-1.jpg" alt="Tattoo work" className="w-full h-32 object-cover rounded mb-3" />
               <p className="font-condensed tracking-widest uppercase text-xs text-black/70">- Reba Harris</p>
             </div>
             
-            <div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg">
+            <div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg flex flex-col">
               <div className="flex mb-3">
                 {[1,2,3,4,5].map(s => <Star key={s} className="fill-black text-black w-4 h-4" />)}
               </div>
-              <p className="font-sans text-sm font-medium mb-4 leading-snug text-black">"I've been getting pierced by grace for a few years now and it's a 10/10 everytime, all 5 of my piercings that she did has healed perfectly"</p>
+              <p className="font-sans text-sm font-medium mb-4 leading-snug text-black flex-grow">"I've been getting pierced by grace for a few years now and it's a 10/10 everytime, all 5 of my piercings that she did has healed perfectly"</p>
+              <img src="/review-piercing.jpg" alt="Piercing work" className="w-full h-32 object-cover rounded mb-3" />
               <p className="font-condensed tracking-widest uppercase text-xs text-black/70">- Chocolate Shay</p>
             </div>
 
-            <div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg">
+            <div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg flex flex-col">
               <div className="flex mb-3">
                 {[1,2,3,4,5].map(s => <Star key={s} className="fill-black text-black w-4 h-4" />)}
               </div>
-              <p className="font-sans text-sm font-medium mb-4 leading-snug text-black">"Everyone was super friendly and professional. I came in and they helped me find the perfect tattoo. Great service can't wait to go again!"</p>
+              <p className="font-sans text-sm font-medium mb-4 leading-snug text-black flex-grow">"Everyone was super friendly and professional. I came in and they helped me find the perfect tattoo. Great service can't wait to go again!"</p>
               <p className="font-condensed tracking-widest uppercase text-xs text-black/70">- Katie Clare</p>
-            </div>
-
-            <div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg">
-              <div className="flex mb-3">
-                {[1,2,3,4,5].map(s => <Star key={s} className="fill-black text-black w-4 h-4" />)}
-              </div>
-              <p className="font-sans text-sm font-medium mb-4 leading-snug text-black">"Grace was phenomenal! I got my navel and Monroe piercing re-done and I didn't feel anything! They are so kind!"</p>
-              <p className="font-condensed tracking-widest uppercase text-xs text-black/70">- Wassana Austin</p>
             </div>
           </div>
           

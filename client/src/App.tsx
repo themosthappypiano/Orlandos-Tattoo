@@ -11,7 +11,6 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import Home from "@/pages/Home";
 import Services from "@/pages/Services";
-import Artists from "@/pages/Artists";
 import Gallery from "@/pages/Gallery";
 import Book from "@/pages/Book";
 import Contact from "@/pages/Contact";
@@ -22,7 +21,6 @@ function Router() {
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/services" component={Services} />
-        <Route path="/artists" component={Artists} />
         <Route path="/gallery" component={Gallery} />
         <Route path="/book" component={Book} />
         <Route path="/contact" component={Contact} />
