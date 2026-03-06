@@ -7,6 +7,7 @@ import { useState, useEffect, useRef } from "react";
 // Rotating Gallery Component
 function RotatingGallery() {
   const [currentSet, setCurrentSet] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   
   // Expanded gallery with all your images
   const allGalleryImages = [
@@ -26,7 +27,13 @@ function RotatingGallery() {
   
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSet((prev) => (prev + 1) % imageSets.length);
+      setIsTransitioning(true);
+      
+      // Start fade out
+      setTimeout(() => {
+        setCurrentSet((prev) => (prev + 1) % imageSets.length);
+        setIsTransitioning(false);
+      }, 400); // Half of transition time for crossfade
     }, 4000); // Change set every 4 seconds
     
     return () => clearInterval(interval);
@@ -39,12 +46,17 @@ function RotatingGallery() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
         {[0, 1, 2].map((index) => (
           <div key={index} className="relative overflow-hidden rounded-lg group aspect-square">
-            <img
-              key={`${currentSet}-${index}`}
-              src={currentImages[index] || "/gallery-1.jpg"}
-              alt={`Tattoo artwork ${index + 1}`}
-              className="w-full h-full object-cover hover:scale-110 transition-all duration-500 rounded-lg filter hover:brightness-110 hover:contrast-110 animate-fade-in"
-            />
+            <div className="relative w-full h-full">
+              <img
+                src={currentImages[index] || "/gallery-1.jpg"}
+                alt={`Tattoo artwork ${index + 1}`}
+                className={`absolute inset-0 w-full h-full object-cover rounded-lg filter hover:brightness-110 hover:contrast-110 transition-all duration-800 ease-in-out ${
+                  isTransitioning 
+                    ? 'opacity-0 scale-105' 
+                    : 'opacity-100 scale-100 hover:scale-110'
+                }`}
+              />
+            </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
         ))}
@@ -55,8 +67,8 @@ function RotatingGallery() {
         {imageSets.map((_, index) => (
           <div
             key={index}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSet ? 'bg-white' : 'bg-white/30'
+            className={`w-3 h-3 rounded-full transition-all duration-500 ease-in-out ${
+              index === currentSet ? 'bg-white scale-125' : 'bg-white/30 scale-100'
             }`}
           />
         ))}
@@ -186,14 +198,7 @@ export default function Home() {
 
 
       {/* REVIEWS SECTION */}
-      <section className="py-24 relative overflow-hidden" style={{backgroundImage: 'url(https://i.ibb.co/1c7Lp3M/Chat-GPT-Image-Feb-24-2026-08-37-21-AM.png)', backgroundSize: 'cover', backgroundPosition: 'left center'}}>
-        <style jsx>{`
-          @media (min-width: 768px) {
-            section {
-              background-position: center !important;
-            }
-          }
-        `}</style>
+      <section className="py-24 relative overflow-hidden bg-cover bg-left md:bg-center" style={{backgroundImage: 'url(https://i.ibb.co/1c7Lp3M/Chat-GPT-Image-Feb-24-2026-08-37-21-AM.png)'}}>  
         <div className="absolute inset-0 bg-black/60"></div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
